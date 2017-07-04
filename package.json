@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=prod babel-node index.js",
-    "test": "npm run lint && npm run test-unit && npm run test-integration && npm run test-contracts",
-    "test-integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*.js",
-    "test-unit": "NODE_ENV=test mocha --opts test/unit/mocha.opts test/unit/**/*.js",
-    "test-contracts": "NODE_ENV=test mocha --opts test/contracts/mocha.opts test/contracts/**/*.js",
+    "start": "babel-node index.js",
+    "test": "npm run test-unit && npm run test-integration && npm run test-contracts",
+    "test-integration": "mocha --opts test/integration/mocha.opts test/integration/**/*.js",
+    "test-unit": "mocha --opts test/unit/mocha.opts test/unit/**/*.js",
+    "test-contracts": "mocha --opts test/contracts/mocha.opts test/contracts/**/*.js",
     "lint": "eslint '**/*.js'",
     "lint:fix": "eslint '**/*.js' --fix"
   },
@@ -33,6 +33,7 @@
     "winston": "^2.3.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "chai": "^3.5.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^12.0.0",

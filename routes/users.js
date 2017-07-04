@@ -3,6 +3,7 @@ import UsersController from '../controllers/users';
 export default (app) => {
   const usersController = new UsersController(app.datasource.models.Users);
 
+<<<<<<< HEAD
 
 /**
  * @api {get} /users List all users
@@ -17,6 +18,8 @@ export default (app) => {
  *    }
  *
  */
+=======
+>>>>>>> 5641bcc742438fbabe016f0ec28fcb96a8ac08d4
   app.route('/users')
     .get((req, res) => {
       usersController.getAll()
