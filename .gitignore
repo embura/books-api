@@ -1,2 +1,4 @@
 node_modules
 !*.sqlite
+prod_books.sqlite
+test_books.sqlite
