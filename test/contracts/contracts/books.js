@@ -1,19 +1,9 @@
-<<<<<<< HEAD
-describe('Conracts Routes Books ', () => {
-  const Books = app.datasource.models.Books;
-  const defaultBook = {
-    id: 1,
-    name: 'Default Book',
-    description: 'Default Description',
-  };
-=======
 describe('Test contracts Books', () => {
->>>>>>> 5641bcc742438fbabe016f0ec28fcb96a8ac08d4
-
     const Books = app.datasource.models.Books;
     const defaultBook = {
         id: 1,
         name: 'Default Book',
+        description: 'Default Description',
     };
 
     beforeEach((done) => {
@@ -25,26 +15,16 @@ describe('Test contracts Books', () => {
         });
     });
 
-<<<<<<< HEAD
-  describe('Route GET /books', () => {
-    it('should return a list of book', (done) => {
-      const booksList = Joi.array().items(Joi.object().keys({
-        id: Joi.number(),
-        name: Joi.string(),
-        description: Joi.string(),
-        createdAt: Joi.date().iso(),
-        updatedAt: Joi.date().iso(),
-      }));
-=======
     describe('Route GET /books', () => {
-        it('should return a list of book', (done) => {
-            const booksList = Joi.array().items(Joi.object().keys({
-                id: Joi.number(),
-                name: Joi.string(),
-                createdAt: Joi.date().iso(),
-                updatedAt: Joi.date().iso(),
-            }));
->>>>>>> 5641bcc742438fbabe016f0ec28fcb96a8ac08d4
+        it('should return a list of books', (done) => {
+            const booksList = Joi.array().items(
+                Joi.object().keys({
+                    id: Joi.number(),
+                    name: Joi.string(),
+                    description: Joi.string(),
+                    createdAt: Joi.date().iso(),
+                    updatedAt: Joi.date().iso(),
+                }));
 
             request
             .get('/books')
@@ -54,95 +34,66 @@ describe('Test contracts Books', () => {
             });
         });
     });
-<<<<<<< HEAD
-  });
 
-
-  describe('Route GET /books/{id}', () => {
-    it('should return a book', (done) => {
-      const book = Joi.object().keys({
-        id: Joi.number(),
-        name: Joi.string(),
-        description: Joi.string(),
-        createdAt: Joi.date().iso(),
-        updatedAt: Joi.date().iso(),
-      });
-=======
->>>>>>> 5641bcc742438fbabe016f0ec28fcb96a8ac08d4
 
     describe('Route GET /books/{id}', () => {
         it('should return a book', (done) => {
             const book = Joi.object().keys({
                 id: Joi.number(),
                 name: Joi.string(),
+                description: Joi.string(),
                 createdAt: Joi.date().iso(),
                 updatedAt: Joi.date().iso(),
             });
-
             request
             .get('/books/1')
             .end((err, res) => {
+
                 joiAssert(res.body, book);
                 done(err);
             });
         });
     });
 
-<<<<<<< HEAD
-  describe('Route POST /books', () => {
-    it('should create a book', (done) => {
-      const newBook = {
-        id: 2,
-        name: 'Create Book',
-        description: 'new Book',
-      };
-
-      const book = Joi.object().keys({
-        id: Joi.number(),
-        name: Joi.string(),
-        description: Joi.string(),
-        createdAt: Joi.date().iso(),
-        updatedAt: Joi.date().iso(),
-      });
-=======
     describe('Route POST /books', () => {
-        it('should create a book', (done) => {
-            const newBook = {
+        it('should create a books', (done) => {
+            
+            const newBooks = {
                 id: 2,
-                name: 'Create Book',
+                name: 'Default Book',
+                description: 'Default Description',
             };
 
             const book = Joi.object().keys({
                 id: Joi.number(),
                 name: Joi.string(),
-                createdAt: Joi.date().iso(),
-                updatedAt: Joi.date().iso(),
+                description: Joi.string(),
             });
->>>>>>> 5641bcc742438fbabe016f0ec28fcb96a8ac08d4
 
             request
             .post('/books')
-            .send(newBook)
+            .send(newBooks)
             .end((err, res) => {
-                joiAssert(res.body, book);
+                joiAssert(res.body, newBooks);
                 done(err);
             });
         });
     });
 
     describe('Route PUT /books/{id}', () => {
-        it('should update a book', (done) => {
-            const updateBook = {
+        it('should update a books', (done) => {
+            const updateBooks = {
                 id: 1,
-                name: 'update Book',
+                name: 'update Books',
+                description: 'Default Description'
             };
             const updateCount = Joi.array().items(1);
 
             request
             .put('/books/1')
-            .send(updateBook)
+            .send(updateBooks)
             .end((err, res) => {
-                joiAssert(res.bady, updateCount);
+                joiAssert(res.body, updateCount);
                 done(err);
             });
         });
@@ -150,7 +101,7 @@ describe('Test contracts Books', () => {
 
 
     describe('Route DELETE /books/{id}', () => {
-        it('should delete a book', (done) => {
+        it('should delete a books', (done) => {
             request
             .delete('/books/1')
             .end((err, res) => {
@@ -160,4 +111,5 @@ describe('Test contracts Books', () => {
             });
         });
     });
+
 });
