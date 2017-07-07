@@ -1,4 +1,5 @@
 describe('Test Integration Books', () => {
+    
     const Books = app.datasource.models.Books;
     const defaultBook = {
         id: 1,
@@ -19,6 +20,7 @@ describe('Test Integration Books', () => {
             request
             .get('/books')
             .end((err, res) => {
+
                 expect(res.body[0].id).to.be.eql(defaultBook.id);
                 expect(res.body[0].name).to.be.eql(defaultBook.name);
 

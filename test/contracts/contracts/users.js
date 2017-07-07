@@ -32,9 +32,6 @@ describe('Test contracts Users', () => {
 			.get('/users')
 			.end((err, res) => {
 
-				console.log('[DEBUG] res.body LIST: ', res.body[0]);
-				console.log('[DEBUG]usersList LIST: ', usersList[0]);
-
 				joiAssert(res.body, usersList);
 				done(err);
 			});
