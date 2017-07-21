@@ -2,17 +2,23 @@ import express from 'express';
 import bodyParse from 'body-parser';
 import config from './config/config';
 import datasource from './config/datasource';
-import booksRouters from './routes/books';
-import usersRouters from './routes/users';
+import booksRouter from './routes/books';
+import usersRouter from './routes/users';
+import authRouter from './routes/auth';
+import authotization from './auth';
 
 const app = express();
 app.config = config;
-app.use(bodyParse.json());
 app.datasource = datasource(app);
+const auth = authotization(app);
 
 app.set('port', 7000);
+app.use(bodyParse.json());
+app.use(auth.initialize());
+app.auth = auth;
 
-booksRouters(app);
-usersRouters(app);
+booksRouter(app);
+usersRouter(app);
+authRouter(app);
 
 export default app;
