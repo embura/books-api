@@ -1,118 +1,118 @@
 describe('Test contracts Users', () => {
-    const Users = app.datasource.models.Users;
-    const defaultUser = {
-        id: 1,
-        name: 'Default Users',
-        email: 'teste@gmail.com',
-        password: '12345678',
-    };
+  const Users = app.datasource.models.Users;
+  const defaultUser = {
+    id: 1,
+    name: 'Default Users',
+    email: 'teste@gmail.com',
+    password: '12345678',
+  };
 
-    beforeEach((done) => {
-        Users
+  beforeEach((done) => {
+    Users
         .destroy({ where: {} })
         .then(() => Users.create(defaultUser))
         .then(() => {
-            done();
+          done();
         });
-    });
+  });
 
-    describe('Route GET /users', () => {
-        it('should return a list of users', (done) => {
-            const usersList = Joi.array().items(
+  describe('Route GET /users', () => {
+    it('should return a list of users', (done) => {
+      const usersList = Joi.array().items(
                 Joi.object().keys({
-                    id: Joi.number(),
-                    name: Joi.string(),
-                    email: Joi.string().email(),
-                    password: Joi.string(),
-                    createdAt: Joi.date().iso(),
-                    updatedAt: Joi.date().iso(),
+                  id: Joi.number(),
+                  name: Joi.string(),
+                  email: Joi.string().email(),
+                  password: Joi.string(),
+                  createdAt: Joi.date().iso(),
+                  updatedAt: Joi.date().iso(),
                 }));
 
-            request
+      request
             .get('/users')
             .end((err, res) => {
-                joiAssert(res.body, usersList);
-                done(err);
+              joiAssert(res.body, usersList);
+              done(err);
             });
-        });
     });
+  });
 
 
-    describe('Route GET /users/{id}', () => {
-        it('should return a users', (done) => {
-            const users = Joi.object().keys({
-                id: Joi.number(),
-                name: Joi.string(),
-                email: Joi.string().email(),
-                password: Joi.string(),
-                createdAt: Joi.date().iso(),
-                updatedAt: Joi.date().iso(),
-            });
-            request
+  describe('Route GET /users/{id}', () => {
+    it('should return a users', (done) => {
+      const users = Joi.object().keys({
+        id: Joi.number(),
+        name: Joi.string(),
+        email: Joi.string().email(),
+        password: Joi.string(),
+        createdAt: Joi.date().iso(),
+        updatedAt: Joi.date().iso(),
+      });
+      request
             .get('/users/1')
             .end((err, res) => {
-                joiAssert(res.body, users);
-                done(err);
+              joiAssert(res.body, users);
+              done(err);
             });
-        });
     });
+  });
 
-    describe('Route POST /users', () => {
-        it('should create a users', (done) => {
-            const newUsers = {
-                id: 2,
-                name: 'Create Users',
-                email: 'teste@gmail.com',
-                password: '12345678',
-            };
+  describe('Route POST /users', () => {
+    it('should create a users', (done) => {
+      const newUsers = {
+        id: 2,
+        name: 'Create Users',
+        email: 'teste@gmail.com',
+        password: '12345678',
+      };
 
-            const users = Joi.object().keys({
-                id: Joi.number(),
-                name: Joi.string(),
-                email: Joi.string().email(),
-                password: Joi.string(),
-                createdAt: Joi.date().iso(),
-                updatedAt: Joi.date().iso(),
-            });
+      const users = Joi.object().keys({
+        id: Joi.number(),
+        name: Joi.string(),
+        email: Joi.string().email(),
+        password: Joi.string(),
+        createdAt: Joi.date().iso(),
+        updatedAt: Joi.date().iso(),
+      });
 
-            request
+      request
             .post('/users')
             .send(newUsers)
             .end((err, res) => {
-                joiAssert(res.body, newUsers);
-                done(err);
+              joiAssert(res.body, users);
+              done(err);
             });
-        });
     });
+  });
 
-    describe('Route PUT /users/{id}', () => {
-        it('should update a users', (done) => {
-            const updateUsers = {
-                id: 1,
-                name: 'update Users',
-            };
-            const updateCount = Joi.array().items(1);
+  describe('Route PUT /users/{id}', () => {
+    it('should update a users', (done) => {
+      const updateUsers = {
+        id: 1,
+        name: 'update Users',
+      };
+      const updateCount = Joi.array().items(1);
 
-            request
+      request
             .put('/users/1')
             .send(updateUsers)
             .end((err, res) => {
-                joiAssert(res.body, updateCount);
-                done(err);
+              joiAssert(res.body, updateCount);
+              done(err);
             });
-        });
     });
+  });
 
 
-    describe('Route DELETE /users/{id}', () => {
-        it('should delete a users', (done) => {
-            request
+  describe('Route DELETE /users/{id}', () => {
+    it('should delete a users', (done) => {
+      request
             .delete('/users/1')
             .end((err, res) => {
-                expect(res.statusCode).to.be.eql(204);
+              expect(res.statusCode).to.be.eql(204);
 
-                done(err);
+              done(err);
             });
-        });
     });
+  });
 });

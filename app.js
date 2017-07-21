@@ -1,6 +1,6 @@
 import express from 'express';
-import config from './config/config';
 import bodyParse from 'body-parser';
+import config from './config/config';
 import datasource from './config/datasource';
 import booksRouters from './routes/books';
 import usersRouters from './routes/users';
