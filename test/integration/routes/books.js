@@ -23,12 +23,12 @@ describe('Integration Routes Books ', () => {
       Books
       .destroy({ where: {} })
       .then(() => {
-        Books.create(defaultBook) 
+        Books.create(defaultBook)
         .then(() => {
           token = jwt.encode({ id: user.id }, jwtSecret);
           done();
         });
-      });      
+      });
     });
   });
 
@@ -38,7 +38,6 @@ describe('Integration Routes Books ', () => {
       .get('/books')
       .set('Authorization', `JWT ${token}`)
       .end((err, res) => {
-        console.log('books: ', res.body);
         expect(res.body[0].id).to.be.eql(defaultBook.id);
         expect(res.body[0].name).to.be.eql(defaultBook.name);
         expect(res.body[0].description).to.be.eql(defaultBook.description);

@@ -35,7 +35,6 @@ describe('Test Integration Users', () => {
       .get('/users')
       .set('Authorization', `JWT ${token}`)
       .end((err, res) => {
-
         expect(res.body[0].id).to.be.eql(defaultUser.id);
         expect(res.body[0].name).to.be.eql(defaultUser.name);
 
@@ -50,7 +49,6 @@ describe('Test Integration Users', () => {
       .get('/users/1')
       .set('Authorization', `JWT ${token}`)
       .end((err, res) => {
-
         expect(res.body.id).to.be.eql(defaultUser.id);
         expect(res.body.name).to.be.eql(defaultUser.name);
         expect(res.body.email).to.be.eql(defaultUser.email);
