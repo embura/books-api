@@ -10,6 +10,6 @@ export default {
     },
   },
 
-  jwtSecret: `Nã0S3i`,
-  jwtSession: { session:false }
+  jwtSecret: 'Nã0S3i',
+  jwtSession: { session: false },
 };

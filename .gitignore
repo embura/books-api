@@ -2,5 +2,3 @@ node_modules
 *.sqlite
 *.log
 package-lock.json
-script_cancel_recurrence_tones.js
-package-lock.json
