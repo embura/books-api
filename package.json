@@ -5,12 +5,13 @@
     "main": "index.js",
     "scripts": {
         "start": "babel-node index.js",
-        "test": "npm run test-unit && npm run test-integration && npm run test-contracts",
+        "test": "npm run test-unit && npm run test-integration && npm run test-contracts && npm run test-coverage",
         "test-integration": "mocha --opts test/integration/mocha.opts test/integration/**/*.js",
         "test-unit": "mocha --opts test/unit/mocha.opts test/unit/**/*.js",
         "test-contracts": "mocha --opts test/contracts/mocha.opts test/contracts/**/*.js",
         "lint": "eslint '**/*.js'",
-        "lint:fix": "eslint '**/*.js' --fix"
+        "lint:fix": "eslint '**/*.js' --fix",
+        "test-coverage": "nyc mocha --opts test/contracts/mocha.opts"
     },
     "author": "",
     "license": "ISC",
