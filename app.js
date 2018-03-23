@@ -1,11 +1,11 @@
-import express from 'express';
-import bodyParse from 'body-parser';
-import config from './config/config';
-import datasource from './config/datasource';
-import booksRouter from './routes/books';
-import usersRouter from './routes/users';
-import authRouter from './routes/auth';
-import authotization from './auth';
+const express = require('express');
+const bodyParse = require('body-parser');
+const config = require('./config/config');
+const datasource = require('./config/datasource');
+const booksRouter = require('./routes/books');
+const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
+const authotization = require('./auth');
 
 const app = express();
 app.config = config;
@@ -21,4 +21,4 @@ booksRouter(app);
 usersRouter(app);
 authRouter(app);
 
-export default app;
+module.exports = app;

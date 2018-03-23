@@ -1,4 +1,4 @@
-import UsersControllers from '../../../controllers/users';
+const UsersControllers = require('../../../controllers/users');
 
 describe('Test Unit Users', () => {
   describe('Get all users: getAll()', () => {

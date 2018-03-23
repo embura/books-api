@@ -1,4 +1,4 @@
-import httpStatus from 'http-status';
+const httpStatus = require('http-status');
 
 const defaultResponse = (data, statusCode = httpStatus.OK) => ({
   data,
@@ -10,10 +10,15 @@ const errorResponse = (message, statusCode = httpStatus.BAD_REQUEST) => ({
   statusCode,
 });
 
-class UsersController {
+module.exports = class UsersController {
 
   constructor(Users) {
     this.Users = Users;
+  }
+
+  static instance(Users){
+    return new UsersController(Users);
+
   }
 
   getAll() {
@@ -46,5 +51,3 @@ class UsersController {
     .catch(error => errorResponse(error.message, httpStatus.UNPROSSABLE_ENTITY));
   }
 }
-
-export default UsersController;

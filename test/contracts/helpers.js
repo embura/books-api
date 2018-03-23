@@ -1,8 +1,8 @@
-import supertest from 'supertest';
-import chai from 'chai';
-import Joi from 'joi';
-import joiAssert from 'joi-assert';
-import app from '../../app';
+const supertest = require('supertest');
+const chai = require('chai');
+const Joi = require('joi');
+const joiAssert = require('joi-assert');
+const app = require('../../app');
 
 global.app = app;
 global.request = supertest(app);

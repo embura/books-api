@@ -1,8 +1,8 @@
-import passport from 'passport';
-import { Strategy, ExtractJwt } from 'passport-jwt';
+const passport = require('passport');
+const { Strategy, ExtractJwt } = require('passport-jwt');
 
 
-export default (app) => {
+module.exports =(app) => {
   const Users = app.datasource.models.Users;
   const opts = {};
 

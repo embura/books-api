@@ -1,4 +1,4 @@
-import jwt from 'jwt-simple';
+const jwt = require('jwt-simple');
 
 describe('Test contracts Books', () => {
   const Books = app.datasource.models.Books;

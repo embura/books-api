@@ -1,4 +1,4 @@
-import jwt from 'jwt-simple';
+const jwt = require('jwt-simple');
 
 describe('Test Integration Users', () => {
   const Users = app.datasource.models.Users;

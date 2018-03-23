@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   database: 'books',
   username: '',
   password: '',

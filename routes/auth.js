@@ -1,13 +1,13 @@
-import HttpStatus from 'http-status';
-import jwt from 'jwt-simple';
+const HttpStatus = require('http-status');
+const jwt = require('jwt-simple');
 
-export default (app) => {
+module.exports =  (app) => {
   const config = app.config;
   const Users = app.datasource.models.Users;
 
   app.post('/token', (req, res) => {
     if (!req.body.email || !req.body.password) {
-      res.sendStatus(HttpStatus.UNATHORIZED);
+      res.sendStatus(HttpStatus.UNAUTHORIZED);
     }
     const email = req.body.email;
     const password = req.body.password;
@@ -22,9 +22,9 @@ export default (app) => {
         });
         return;
       }
-      res.sendStatus(HttpStatus.UNATHORIZED);
+      res.sendStatus(HttpStatus.UNAUTHORIZED);
     }).catch(() => {
-      res.sendStatus(HttpStatus.UNATHORIZED);
+      res.sendStatus(HttpStatus.UNAUTHORIZED);
     });
   });
 };

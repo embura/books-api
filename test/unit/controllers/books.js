@@ -1,4 +1,4 @@
-import BooksControllers from '../../../controllers/books';
+const BooksControllers = require('../../../controllers/books');
 
 describe('Unit Controller: Books ', () => {
   describe('Get all books: getAll()', () => {
