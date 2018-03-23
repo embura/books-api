@@ -16,9 +16,8 @@ module.exports = class BooksController {
     this.Books = Books;
   }
 
-  static instance(Books){
+  static instance(Books) {
     return new BooksController(Books);
-
   }
 
   getAll() {
@@ -50,4 +49,4 @@ module.exports = class BooksController {
     .then(result => defaultResponse(result, httpStatus.NO_CONTENT))
     .catch(error => errorResponse(error.message, httpStatus.UNPROSSABLE_ENTITY));
   }
-}
+};

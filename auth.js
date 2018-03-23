@@ -2,7 +2,7 @@ const passport = require('passport');
 const { Strategy, ExtractJwt } = require('passport-jwt');
 
 
-module.exports =(app) => {
+module.exports = (app) => {
   const Users = app.datasource.models.Users;
   const opts = {};
 

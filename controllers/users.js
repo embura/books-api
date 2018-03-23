@@ -16,9 +16,8 @@ module.exports = class UsersController {
     this.Users = Users;
   }
 
-  static instance(Users){
+  static instance(Users) {
     return new UsersController(Users);
-
   }
 
   getAll() {
@@ -50,4 +49,4 @@ module.exports = class UsersController {
     .then(result => defaultResponse(result, httpStatus.NO_CONTENT))
     .catch(error => errorResponse(error.message, httpStatus.UNPROSSABLE_ENTITY));
   }
-}
+};

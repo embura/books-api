@@ -1,7 +1,7 @@
 const HttpStatus = require('http-status');
 const jwt = require('jwt-simple');
 
-module.exports =  (app) => {
+module.exports = (app) => {
   const config = app.config;
   const Users = app.datasource.models.Users;
 

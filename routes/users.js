@@ -1,6 +1,6 @@
 const UsersController = require('../controllers/users');
 
-module.exports =  (app) => {
+module.exports = (app) => {
   const usersController = new UsersController(app.datasource.models.Users);
 
   app.route('/users')

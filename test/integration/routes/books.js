@@ -1,4 +1,4 @@
-const jwt  = require('jwt-simple');
+const jwt = require('jwt-simple');
 
 describe('Integration Routes Books ', () => {
   const Books = app.datasource.models.Books;

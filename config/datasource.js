@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 
 let database = null;
-
 const loadModels = (sequelize) => {
   const dir = path.join(__dirname, '../models');
   const models = [];
@@ -15,27 +14,22 @@ const loadModels = (sequelize) => {
   return models;
 };
 
-module.exports =  function(app){
+module.exports = function db(app) {
   if (!database) {
     const config = app.config;
     const sequelize = new Sequelize(
-      config.database,
-      config.username,
-      config.password,
-      config.params
-      );
+        config.database,
+        config.username,
+        config.password,
+    config.params);
 
     database = {
       sequelize,
       Sequelize,
       model: {},
     };
-
-
     database.models = loadModels(sequelize);
-
-    sequelize.sync()
-    .done(() => database);
+    sequelize.sync().done(() => database);
   }
   return database;
 };
