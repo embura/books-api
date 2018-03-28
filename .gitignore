@@ -1,5 +1,4 @@
 node_modules
-*.sqlite
 *.log
 .nyc_output
 .project
