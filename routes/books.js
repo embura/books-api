@@ -4,8 +4,8 @@
  */
 const BooksController = require('../controllers/books');
 module.exports = (app) => {
-    const booksController = new BooksController(app.datasource.models.Books);
-    app.route('/books').all(app.auth.authenticate())
+  const booksController = new BooksController(app.datasource.models.Books);
+  app.route('/books').all(app.auth.authenticate())
         /**
          * @api {get} /books Get all Books
          * @apiPermission UserAuth
@@ -37,16 +37,16 @@ module.exports = (app) => {
          * ]
          *
          * @apiSampleRequest http://localhost:7000/books/
-         * 
+         *
          */
         .get((req, res) => {
-            booksController.getAll().then((response) => {
-                res.status(response.statusCode);
-                res.json(response.data);
-            });
+          booksController.getAll().then((response) => {
+            res.status(response.statusCode);
+            res.json(response.data);
+          });
         })
         /**
-         * @api {post} /books/:id Create new Books 
+         * @api {post} /books/:id Create new Books
          * @apiPermission UserAuth
          * @apiName Create Books
          * @apiGroup Books
@@ -68,7 +68,7 @@ module.exports = (app) => {
          * @apiSuccess {String} description Book.
          * @apiSuccess {String} updatedAt Date update Book.
          * @apiSuccess {String} createdAt Date create Book.
-         * 
+         *
          * @apiSuccessExample Success-Response:
          *     HTTP/1.1 201 OK
          *     {
@@ -81,12 +81,12 @@ module.exports = (app) => {
          *
          */
         .post((req, res) => {
-            booksController.create(req.body).then((response) => {
-                res.status(response.statusCode);
-                res.json(response.data);
-            });
+          booksController.create(req.body).then((response) => {
+            res.status(response.statusCode);
+            res.json(response.data);
+          });
         });
-    app.route('/books/:id').all(app.auth.authenticate())
+  app.route('/books/:id').all(app.auth.authenticate())
         /**
          * @api {get} /books/:id Get a Book
          * @apiPermission UserAuth
@@ -111,13 +111,13 @@ module.exports = (app) => {
          *
          */
         .get((req, res) => {
-            booksController.getById(req.params).then((response) => {
-                res.status(response.statusCode);
-                res.json(response.data);
-            });
+          booksController.getById(req.params).then((response) => {
+            res.status(response.statusCode);
+            res.json(response.data);
+          });
         })
         /**
-         * @api {put} /books/:id Update Books 
+         * @api {put} /books/:id Update Books
          * @apiPermission UserAuth
          * @apiName Update Books
          * @apiGroup Books
@@ -139,7 +139,7 @@ module.exports = (app) => {
          * @apiSuccess {String} description Book.
          * @apiSuccess {String} updatedAt Date update Book.
          * @apiSuccess {String} createdAt Date create Book.
-         * 
+         *
          * @apiSuccessExample Success-Response:
          *     HTTP/1.1 200 OK
          *     [
@@ -148,10 +148,10 @@ module.exports = (app) => {
          *
          */
         .put((req, res) => {
-            booksController.update(req.body, req.params).then((response) => {
-                res.status(response.statusCode);
-                res.json(response.data);
-            });
+          booksController.update(req.body, req.params).then((response) => {
+            res.status(response.statusCode);
+            res.json(response.data);
+          });
         })
 
         /**
@@ -163,25 +163,25 @@ module.exports = (app) => {
          * curl -X DELETE http://localhost:7000/books/:id
          *   -H 'Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.B9ceD-vpW04Aoo8-avarQ6O4UYP2pEUZFqTfjtJQIc0'
          *   -H 'Content-Type: application/json'
-         *    
+         *
          * @apiHeaderExample {json}  Headder-Exemple:
          *  {
          *     "Authorization":"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.B9ceD-vpW04Aoo8-avarQ6O4UYP2pEUZFqTfjtJQIc0",
-         *     "Content-Type":"application/json"  
+         *     "Content-Type":"application/json"
          *  }
          *
          *
          * @apiHeader (Auth) {Token} Authorization Token unique access-key.
          * @apiHeader (Auth) {Content-Type} Content-Type Content-Type:application/json.
          * @apiParam {Number} id Book unique ID.
-         * 
+         *
          * @apiSuccessExample Success-Response:
          *     HTTP/1.1 204 OK
          *
          */
         .delete((req, res) => {
-            booksController.delete(req.params).then((response) => {
-                res.sendStatus(response.statusCode);
-            });
+          booksController.delete(req.params).then((response) => {
+            res.sendStatus(response.statusCode);
+          });
         });
 };
