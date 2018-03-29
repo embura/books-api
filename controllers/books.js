@@ -16,10 +16,6 @@ module.exports = class BooksController {
     this.Books = Books;
   }
 
-  static instance(Books) {
-    return new BooksController(Books);
-  }
-
   getAll() {
     return this.Books.findAll({})
     .then(result => defaultResponse(result))

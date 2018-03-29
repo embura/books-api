@@ -16,10 +16,6 @@ module.exports = class UsersController {
     this.Users = Users;
   }
 
-  static instance(Users) {
-    return new UsersController(Users);
-  }
-
   getAll() {
     return this.Users.findAll({})
     .then(result => defaultResponse(result))

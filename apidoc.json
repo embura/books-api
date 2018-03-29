@@ -1,5 +1,5 @@
 {
-  "name": "book-api",
-  "version": "0.1.0",
-  "description": "apiDoc inherit example"
+  "name": "Books-Api",
+  "version": "0.1.1",
+  "description": "API of Books"
 }
