@@ -49,6 +49,7 @@
         "joi": "^9.2.0",
         "joi-assert": "0.0.3",
         "mocha": "^3.4.2",
+        "nodemon": "^1.17.3",
         "nyc": "^11.6.0",
         "supertest": "^2.0.1",
         "testdouble": "^1.11.2"

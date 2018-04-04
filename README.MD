@@ -17,6 +17,7 @@ Para a camada de banco de dados, Models e persistência escolhi o Sequelize com 
 
 # Padrão de código
 
+
 Para garantir o padrão de código optei pelo Eslint com o padrão do AirBnB. Esse padrão ja suporta o ES6 e é um dos mais usados atualmente.
 
 # Testes
@@ -24,36 +25,14 @@ Para garantir o padrão de código optei pelo Eslint com o padrão do AirBnB. Es
 Todo o desenvolvimento é guiado por Testes. A minha idéia e mostrar a importancia e o valor que isso traz para o processo. Quem fizer o tutorial vai aprender sobre testes unitários, testes de integração e contrato. Esses testes são cruciais para o desenvolvimento de uma API.
 
 
-#Executar na API
+
+
+# Executar na API
 
 npm install 
 npm run test-coverage
 
-
-
 npm start
 
-
-## Get Books
-curl -X GET \
-  http://localhost:7000/Books \
-  -H 'Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.B9ceD-vpW04Aoo8-avarQ6O4UYP2pEUZFqTfjtJQIc0' \
-  -H 'Cache-Control: no-cache' \
-
-## Create Book
-curl -X POST \
-  http://localhost:7000/books \
-  -H 'Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.B9ceD-vpW04Aoo8-avarQ6O4UYP2pEUZFqTfjtJQIc0' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \  
-  -d '{
-    "name": "Era uma vez",
-    "description": "João e Maria"
-}'
-  
-
-
-
-  
-
-
+# Doc
+https://embura.github.io/books-api
