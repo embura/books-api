@@ -1,13 +1,10 @@
 module.exports = {
-  database: 'books',
-  username: '',
-  password: '',
+  database: 'app',
+  username: 'app',
+  password: 'app',
   params: {
-    dialect: 'sqlite',
-    storage: process.env.NODE_ENV ? `${process.env.NODE_ENV}_books.sqlite` : 'default_books.sqlite',
-    define: {
-      underscore: true,
-    },
+    host: 'mysql',
+    dialect: 'db',
   },
 
   jwtSecret: 'Nã0S3i',

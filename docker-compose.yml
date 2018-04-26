@@ -1,0 +1,29 @@
+version: '2'
+services:
+  app:
+    container_name: books_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment: 
+      NODE_ENV: development
+      DB_USERNAME: app
+      DB_PASSWORD: app
+      DB_NAME: app
+    ports:
+      - 7000:7000
+    depends_on:
+      - db
+    volumes:
+      - .:/home/app/books-api
+      - /home/app/books-api/node_modules
+  
+  db:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: app
+        MYSQL_USER: app
+        MYSQL_PASSWORD: app

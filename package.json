@@ -27,6 +27,7 @@
         "jwt-simple": "^0.5.1",
         "mongodb": "^2.2.30",
         "morgan": "^1.8.2",
+        "mysql": "^2.15.0",
         "node-uuid": "^1.4.8",
         "passport": "^0.3.2",
         "passport-jwt": "^2.2.1",
