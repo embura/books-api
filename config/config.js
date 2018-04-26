@@ -3,8 +3,8 @@ module.exports = {
   username: 'app',
   password: 'app',
   params: {
-    host: 'mysql',
-    dialect: 'db',
+    host: 'db',
+    dialect: 'mysql',
   },
 
   jwtSecret: 'Nã0S3i',
