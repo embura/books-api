@@ -24,15 +24,14 @@ Para garantir o padrão de código optei pelo Eslint com o padrão do AirBnB. Es
 
 Todo o desenvolvimento é guiado por Testes. A minha idéia e mostrar a importancia e o valor que isso traz para o processo. Quem fizer o tutorial vai aprender sobre testes unitários, testes de integração e contrato. Esses testes são cruciais para o desenvolvimento de uma API.
 
+# Instalação Docker
+link https://docs.docker.com/install/
 
 
 
 # Executar na API
 
-npm install 
-npm run test-coverage
-
-npm start
+docker-compose up
 
 # Doc
 https://embura.github.io/books-api
